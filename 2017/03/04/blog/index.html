@@ -3,27 +3,36 @@
 <head>
   <meta charset="utf-8">
   
-  <title>express | crazycs</title>
+  <title>github+hexo搭建博客笔记 | crazycs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#express 学习记录原文地址http://ourjs.com/detail/56b2a6f088feaf2d031d2468
-##入门
-###安装    npm install -g express-generator
-###新建一个工程    express -e blog    cd blog    npm install启动项目    npm start可以在浏览器里访问localho">
+  <meta name="description" content="#github+hexo　搭建博客笔记1.　配置ssh秘钥
+sudo ssh-keygen -t rsa -C &amp;quot;你的github邮箱&amp;quot;
+测试ssh公钥
+ssh -T git@github.com
+设置ssh 公钥个人信息
+sudo git config --global user.name &amp;quot;输入你的名字（）英文）”
+sudo git config --global">
 <meta property="og:type" content="article">
-<meta property="og:title" content="express">
-<meta property="og:url" content="http://crazycs.com/2017/03/04/express/index.html">
+<meta property="og:title" content="github+hexo搭建博客笔记">
+<meta property="og:url" content="http://crazycs.com/2017/03/04/blog/index.html">
 <meta property="og:site_name" content="crazycs">
-<meta property="og:description" content="#express 学习记录原文地址http://ourjs.com/detail/56b2a6f088feaf2d031d2468
-##入门
-###安装    npm install -g express-generator
-###新建一个工程    express -e blog    cd blog    npm install启动项目    npm start可以在浏览器里访问localho">
-<meta property="og:updated_time" content="2017-03-04T14:31:10.478Z">
+<meta property="og:description" content="#github+hexo　搭建博客笔记1.　配置ssh秘钥
+sudo ssh-keygen -t rsa -C &amp;quot;你的github邮箱&amp;quot;
+测试ssh公钥
+ssh -T git@github.com
+设置ssh 公钥个人信息
+sudo git config --global user.name &amp;quot;输入你的名字（）英文）”
+sudo git config --global">
+<meta property="og:updated_time" content="2017-03-04T16:01:34.909Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="express">
-<meta name="twitter:description" content="#express 学习记录原文地址http://ourjs.com/detail/56b2a6f088feaf2d031d2468
-##入门
-###安装    npm install -g express-generator
-###新建一个工程    express -e blog    cd blog    npm install启动项目    npm start可以在浏览器里访问localho">
+<meta name="twitter:title" content="github+hexo搭建博客笔记">
+<meta name="twitter:description" content="#github+hexo　搭建博客笔记1.　配置ssh秘钥
+sudo ssh-keygen -t rsa -C &amp;quot;你的github邮箱&amp;quot;
+测试ssh公钥
+ssh -T git@github.com
+设置ssh 公钥个人信息
+sudo git config --global user.name &amp;quot;输入你的名字（）英文）”
+sudo git config --global">
   
     <link rel="alternate" href="/atom.xml" title="crazycs" type="application/atom+xml">
   
@@ -72,10 +81,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-express" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-blog" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/03/04/express/" class="article-date">
-  <time datetime="2017-03-04T13:44:24.000Z" itemprop="datePublished">2017-03-04</time>
+    <a href="/2017/03/04/blog/" class="article-date">
+  <time datetime="2017-03-04T15:59:29.000Z" itemprop="datePublished">2017-03-04</time>
 </a>
     
   </div>
@@ -86,7 +95,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      express
+      github+hexo搭建博客笔记
     </h1>
   
 
@@ -94,50 +103,39 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#express 学习记录<br><a href="http://ourjs.com/detail/56b2a6f088feaf2d031d2468" target="_blank" rel="external">原文地址http://ourjs.com/detail/56b2a6f088feaf2d031d2468</a></p>
-<p>##入门</p>
-<p>###安装<br>    npm install -g express-generator</p>
-<p>###新建一个工程<br>    express -e blog<br>    cd blog<br>    npm install<br>启动项目<br>    <code>npm start</code><br>可以在浏览器里访问<a href="http://localhost:3000" target="_blank" rel="external">localhost:3000</a>    </p>
-<p>###工程结构</p>
-<ul>
-<li><strong>app.js</strong>    :　启动(入口)文件</li>
-<li><strong>package.json</strong>    :　工程项目信息和模块依赖，当在 dependencies 中添加依赖的模块时，运行npm install，npm 会检查当前目录下的 package.json，并自动安装所有指定的模块</li>
-<li><strong>node_modules</strong>    :存放安装的模块</li>
-<li><strong>public</strong>    :    存放image,css,js 文件</li>
-<li><strong>routes</strong>    :    存放路由文件</li>
-<li><strong>views</strong>    :    存放视图模板文件</li>
-<li><strong>bin</strong>        :    存放可执行文件</li>
-</ul>
-<p>##路由控制<br>routes/index.js　中有以下代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">router.get(&apos;/&apos;, function(req, res, next) &#123;</div><div class="line">  res.render(&apos;index&apos;, &#123; title: &apos;Express&apos; &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<p>这段代码的作用的访问主页时，调用ejs模板引擎，来渲染index.ejs模板文引擎。</p>
+        <p>#github+hexo　搭建博客笔记<br>1.　配置ssh秘钥</p>
+<pre><code>sudo ssh-keygen -t rsa -C &quot;你的github邮箱&quot;
+</code></pre><p>测试ssh公钥</p>
+<pre><code>ssh -T git@github.com
+</code></pre><p>设置ssh 公钥个人信息</p>
+<pre><code>sudo git config --global user.name &quot;输入你的名字（）英文）”
+sudo git config --global user.email “输入你的邮箱”
+</code></pre><p>2.　安装git , nodejs , hexo<br>3.　初始化博客</p>
+<pre><code>hexo inti blog
+cd blog
+npm install
+</code></pre><p>检查，开启本地博客服务器，然后访问<a href="localhost:4001" target="_blank" rel="external">localhost:4001</a>。后面的-p 4001可以省略不写，写上是防止端口冲突。<br>    hexo s -p 4001</p>
+<p>安装自动部署git 插件</p>
+<pre><code>sudo npm install hexo-deployer-git --save
+</code></pre><p>4.　配置_config.yml<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">	type: git</div><div class="line">	repository:git@github.com:yourname/yourname.github.io.git(这个yourname改成你自己的名称)</div><div class="line">	branch: master</div></pre></td></tr></table></figure></p>
+<p>##hexo常用命令<br>hexo s　　开启本地服务器，一般先在本地查看，确认无误后在部署到github上<br>hexo clean    清楚缓存<br>hexo g　　        生成部署文件public<br>hexo d　        自动部署<br>hexo d -g    生成部署文件public 后　自动部署</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://crazycs.com/2017/03/04/express/" data-id="cizvfsfwy0001jocf4wus9vwe" class="article-share-link">Share</a>
+      <a data-url="http://crazycs.com/2017/03/04/blog/" data-id="cizvfsfwp0000jocf7g23ug57" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li></ul>
-
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2017/03/04/blog/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          github+hexo搭建博客笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/03/01/nodejs/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2017/03/04/express/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Node.JS</div>
+      <div class="article-nav-title">express</div>
     </a>
   
 </nav>
