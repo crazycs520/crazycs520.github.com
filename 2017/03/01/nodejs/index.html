@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Node.JS | crazycs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##Node.JS 简介
+
+共享状态的并发。注意回调函数和错误处理修改内存中的变量（状态）。
+阻塞与非阻塞。nodejs采用事件轮询，故setTimeout()是非阻塞的，异步的。
+Node并发采用事件轮询。
+单线程。调用（执行）堆栈
+错误处理。
+堆栈追踪
+
+##Node 中的 API
+
+全局对象 global
+模块系统的三个核心对象:require,module,export
+事件，监听。
+bu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node.JS">
+<meta property="og:url" content="http://crazycs.com/2017/03/01/nodejs/index.html">
+<meta property="og:site_name" content="crazycs">
+<meta property="og:description" content="##Node.JS 简介
+
+共享状态的并发。注意回调函数和错误处理修改内存中的变量（状态）。
+阻塞与非阻塞。nodejs采用事件轮询，故setTimeout()是非阻塞的，异步的。
+Node并发采用事件轮询。
+单线程。调用（执行）堆栈
+错误处理。
+堆栈追踪
+
+##Node 中的 API
+
+全局对象 global
+模块系统的三个核心对象:require,module,export
+事件，监听。
+bu">
+<meta property="og:updated_time" content="2017-03-04T10:53:03.927Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node.JS">
+<meta name="twitter:description" content="##Node.JS 简介
+
+共享状态的并发。注意回调函数和错误处理修改内存中的变量（状态）。
+阻塞与非阻塞。nodejs采用事件轮询，故setTimeout()是非阻塞的，异步的。
+Node并发采用事件轮询。
+单线程。调用（执行）堆栈
+错误处理。
+堆栈追踪
+
+##Node 中的 API
+
+全局对象 global
+模块系统的三个核心对象:require,module,export
+事件，监听。
+bu">
+  
+    <link rel="alternate" href="/atom.xml" title="crazycs" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">crazycs</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://crazycs.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-nodejs" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/01/nodejs/" class="article-date">
+  <time datetime="2017-03-01T04:59:15.000Z" itemprop="datePublished">2017-03-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node.JS
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##Node.JS 简介</p>
+<ul>
+<li>共享状态的并发。注意回调函数和错误处理修改内存中的变量（状态）。</li>
+<li>阻塞与非阻塞。nodejs采用事件轮询，故<strong>setTimeout()</strong>是非阻塞的，异步的。</li>
+<li>Node并发采用事件轮询。</li>
+<li>单线程。调用（执行）堆栈</li>
+<li>错误处理。</li>
+<li>堆栈追踪</li>
+</ul>
+<p>##Node 中的 API</p>
+<ul>
+<li>全局对象 <strong>global</strong></li>
+<li>模块系统的三个核心对象:require,module,export</li>
+<li>事件，监听。</li>
+<li>buffer</li>
+<li>stream</li>
+<li>监视</li>
+<li>事件驱动 <strong>events</strong><ul>
+<li>events.EventEmitter</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://crazycs.com/2017/03/01/nodejs/" data-id="cizvfhgj10000v9cfjfyykfnp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js简介/">Node.js简介</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/04/express/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          express
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js简介/">Node.js简介</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Node-js简介/" style="font-size: 10px;">Node.js简介</a> <a href="/tags/express/" style="font-size: 10px;">express</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/04/express/">express</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/01/nodejs/">Node.JS</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 crazycs<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
