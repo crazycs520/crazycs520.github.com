@@ -61,6 +61,310 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Session" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/06/Session/" class="article-date">
+  <time datetime="2017-03-06T10:38:04.000Z" itemprop="datePublished">2017-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/06/Session/">Session</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="什么是Session"><a href="#什么是Session" class="headerlink" title="什么是Session"></a>什么是Session</h1><p>session，中文经常翻译为会话，其本来的含义是指有始有终的一系列动作/消息，比如打电话时从拿起电话拨号到挂断电话这中间的一系列过程可以称之为一个session。有时候我们可以看到这样的话“在一个浏览器会话期间，…”，这里的会话一词用的就是其本义，是指从一个浏览器窗口打开到关闭这个期间①。最混乱的是“用户（客户端）在一次会话期间”这样一句话，它可能指用户的一系列动作（一般情况下是同某个具体目的相关的一系列动作，比如从登录到选购商品到结账登出这样一个网上购物的过程，有时候也被称为一个transaction），然而有时候也可能仅仅是指一次连接，也有可能是指含义①，其中的差别只能靠上下文来推断②。</p>
+<p>然而当session一词与网络协议相关联时，它又往往隐含了“面向连接”和/或“保持状态”这样两个含义，“面向连接”指的是在通信双方在通信之前要先建立一个通信的渠道，比如打电话，直到对方接了电话通信才能开始，与此相对的是写信，在你把信发出去的时候你并不能确认对方的地址是否正确，通信渠道不一定能建立，但对发信人来说，通信已经开始了。“保持状态”则是指通信的一方能够把一系列的消息关联起来，使得消息之间可以互相依赖，比如一个服务员能够认出再次光临的老顾客并且记得上次这个顾客还欠店里一块钱。这一类的例子有“一个TCP session”或者“一个POP3 session”③。 </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://crazycs.com/2017/03/06/Session/" data-id="cizxzbgp50004rscft1lz7a16" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Promise" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/05/Promise/" class="article-date">
+  <time datetime="2017-03-05T14:55:20.000Z" itemprop="datePublished">2017-03-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/05/Promise/">Promise</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="http://liubin.org/promises-book/" target="_blank" rel="external">原文地址</a></p>
+<h2 id="什么是Promise"><a href="#什么是Promise" class="headerlink" title="什么是Promise"></a>什么是Promise</h2><h3 id="什么是Promise-1"><a href="#什么是Promise-1" class="headerlink" title="什么是Promise"></a>什么是Promise</h3><p>Promise是抽象异步处理对象以及对其进行各种操作的组件。</p>
+<p>如果说到基于JavaScript的异步处理，我想大多数都会想到利用回调函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//使用了回调函数的异步处理</span></div><div class="line">getAsync(<span class="string">"fileA.txt"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, result</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span>(error)&#123;<span class="comment">// 取得失败时的处理</span></div><div class="line">        <span class="keyword">throw</span> error;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 取得成功时的处理</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>Node.js等则规定在JavaScript的回调函数的第一个参数为 <code>Error</code> 对象，这也是它的一个惯例。</p>
+<p>像上面这样基于回调函数的异步处理如果统一参数使用规则的话，写法也会很明了。</p>
+<p>而Promise则是把类似的异步处理对象和处理规则进行规范化， 并按照采用统一的接口来编写，而采取规定方法之外的写法都会出错。</p>
+<p>下面是使用了Promise进行异步处理的一个例子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var promise = getAsyncPromise(&quot;fileA.txt&quot;); </div><div class="line">promise.then(function(result)&#123;</div><div class="line">    // 获取文件内容成功时的处理</div><div class="line">&#125;).catch(function(error)&#123;</div><div class="line">    // 获取文件内容失败时的处理</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>这和回调函数方式相比有哪些不同之处呢？ 在使用promise进行一步处理的时候，我们必须按照接口规定的方法编写处理代码。</p>
+<p>也就是说，除promise对象规定的方法(这里的 <code>then</code> 或 <code>catch</code>)以外的方法都是不可以使用的， 而不会像回调函数方式那样可以自己自由的定义回调函数的参数，而必须严格遵守固定、统一的编程方式来编写代码。</p>
+<p>这样，基于Promise的统一接口的做法， 就可以形成基于接口的各种各样的异步处理模式。</p>
+<p>所以，promise的功能是可以将复杂的异步处理轻松地进行模式化， 这也可以说得上是使用promise的理由之一。</p>
+<h3 id="Promise-简介"><a href="#Promise-简介" class="headerlink" title="Promise 简介"></a>Promise 简介</h3><p>在 <a href="http://liubin.org/promises-book/#es6-promises" target="_blank" rel="external">ES6 Promises</a> 标准中定义的API还不是很多。</p>
+<p>目前大致有下面三种类型。</p>
+<ol>
+<li><strong>Constructor</strong></li>
+</ol>
+<p>Promise类似于 <code>XMLHttpRequest</code>，从构造函数 <code>Promise</code> 来创建一个新建新<code>promise</code>对象作为接口。</p>
+<p>要想创建一个promise对象、可以使用<code>new</code>来调用<code>Promise</code>的构造器来进行实例化。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var promise = new Promise(function(resolve, reject) &#123;</div><div class="line">    // 异步处理</div><div class="line">    // 处理结束后、调用resolve 或 reject</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ol>
+<li><strong>Instance Method</strong></li>
+</ol>
+<p>对通过new生成的promise对象为了设置其值在 <strong>resolve</strong>(成功) / <strong>reject</strong>(失败)时调用的回调函数 可以使用<code>promise.then()</code> 实例方法。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">promise.then(onFulfilled, onRejected)</div></pre></td></tr></table></figure>
+<ul>
+<li><p>resolve(成功)时</p>
+<p><code>onFulfilled</code> 会被调用</p>
+</li>
+<li><p>reject(失败)时</p>
+<p><code>onRejected</code> 会被调用</p>
+</li>
+</ul>
+<p><code>onFulfilled</code>、<code>onRejected</code> 两个都为可选参数。</p>
+<p><code>promise.then</code> 成功和失败时都可以使用。 另外在只想对异常进行处理时可以采用 <code>promise.then(undefined, onRejected)</code> 这种方式，只指定reject时的回调函数即可。 不过这种情况下 <code>promise.catch(onRejected)</code> 应该是个更好的选择。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">promise.catch(onRejected)</div></pre></td></tr></table></figure>
+<ol>
+<li><strong>Static Method</strong></li>
+</ol>
+<p>像 <code>Promise</code> 这样的全局对象还拥有一些静态方法。</p>
+<p>包括 <code>Promise.all()</code> 还有 <code>Promise.resolve()</code> ,<code>Promise.race()</code>等在内，主要都是一些对Promise进行操作的辅助方法。</p>
+<h4 id="Promise-workflow"><a href="#Promise-workflow" class="headerlink" title="Promise workflow"></a>Promise workflow</h4><p>先来看一看下面的示例代码。</p>
+<p>promise-workflow.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">asyncFunction</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//1</span></div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function"><span class="keyword">function</span> (<span class="params">resolve, reject</span>) </span>&#123;</div><div class="line">        setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            resolve(<span class="string">'Async Hello world'</span>);</div><div class="line">        &#125;, <span class="number">16</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"><span class="comment">//2</span></div><div class="line">asyncFunction().then(<span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(value);    <span class="comment">// =&gt; 'Async Hello world'</span></div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ol>
+<li><code>new Promise</code>构造器之后，会返回一个promise对象</li>
+<li>为promise对象用设置 <code>.then</code> 调用返回值时的回调函数。</li>
+</ol>
+<p><code>asyncFunction</code> 这个函数会返回promise对象， 对于这个promise对象，我们调用它的 <code>then</code> 方法来设置resolve后的回调函数， <code>catch</code> 方法来设置发生错误时的回调函数。</p>
+<p>该promise对象会在setTimeout之后的16ms时被resolve, 这时 <code>then</code> 的回调函数会被调用，并输出 <code>&#39;Async Hello world&#39;</code> 。</p>
+<p>当然，像<code>promise.then(onFulfilled, onRejected)</code> 的方法声明一样， 如果不使用<code>catch</code> 方法只使用 <code>then</code>方法的话，如下所示的代码也能完成相同的工作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">asyncFunction().then(function (value) &#123;</div><div class="line">    console.log(value);</div><div class="line">&#125;, function (error) &#123;</div><div class="line">    console.log(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="Promise的状态"><a href="#Promise的状态" class="headerlink" title="Promise的状态"></a>Promise的状态</h4><p>用<code>new Promise</code> 实例化的promise对象有以下三个状态。</p>
+<p>​    <strong>“has-resolution” - Fulfilled</strong></p>
+<p>resolve(成功)时。此时会调用 <code>onFulfilled</code></p>
+<p>​    <strong>“has-rejection” - Rejected</strong></p>
+<p>reject(失败)时。此时会调用 <code>onRejected</code></p>
+<p>​    <strong>“unresolved” - Pending</strong></p>
+<p>既不是resolve也不是reject的状态。也就是promise对象刚被创建后的初始化状态等</p>
+<p>promise对象的状态，从<em>Pending</em>转换为<em>Fulfilled</em>或<em>Rejected</em>之后， 这个promise对象的状态就不会再发生任何变化。</p>
+<p>也就是说，Promise与Event等不同，在<code>.then</code> 后执行的函数可以肯定地说只会被调用一次。</p>
+<p>另外，<em>Fulfilled</em>和<em>Rejected</em>这两个中的任一状态都可以表示为<strong>Settled</strong>(不变的)。</p>
+<p>​    <strong>Settled</strong></p>
+<p>resolve(成功) 或 reject(失败)。</p>
+<p>当promise的对象状态发生变化时，用<code>.then</code> 来定义只会被调用一次的函数。</p>
+<h3 id="编写Promise代码"><a href="#编写Promise代码" class="headerlink" title="编写Promise代码"></a>编写Promise代码</h3><h4 id="创建promise对象"><a href="#创建promise对象" class="headerlink" title="创建promise对象"></a>创建promise对象</h4><p>流程如下所示:</p>
+<ol>
+<li><code>new Promise(fn)</code> 返回一个promise对象</li>
+<li>在<code>fn</code> 中指定异步等处理<ul>
+<li>处理结果正常的话，调用<code>resolve(处理结果值)</code></li>
+<li>处理结果错误的话，调用<code>reject(Error对象)</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>创建XHR的promise对象</strong></p>
+<p>首先，创建一个用Promise把XHR处理包装起来的名为 <code>getURL</code> 的函数。</p>
+<p><em>xhr-promise.js</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">function getURL(URL) &#123;</div><div class="line">    return new Promise(function (resolve, reject) &#123;</div><div class="line">        var req = new XMLHttpRequest();</div><div class="line">        req.open(&apos;GET&apos;, URL, true);</div><div class="line">        req.onload = function () &#123;</div><div class="line">            if (req.status === 200) &#123;</div><div class="line">                resolve(req.responseText);</div><div class="line">            &#125; else &#123;</div><div class="line">                reject(new Error(req.statusText));</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        req.onerror = function () &#123;</div><div class="line">            reject(new Error(req.statusText));</div><div class="line">        &#125;;</div><div class="line">        req.send();</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">// 运行示例</div><div class="line">var URL = &quot;http://httpbin.org/get&quot;;</div><div class="line">getURL(URL).then(function onFulfilled(value)&#123;</div><div class="line">    console.log(value);</div><div class="line">&#125;).catch(function onRejected(error)&#123;</div><div class="line">    console.error(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><code>getURL</code> 只有在通过XHR取得结果状态为200时才会调用 <code>resolve</code> - 也就是只有数据取得成功时，而其他情况（取得失败）时则会调用 <code>reject</code> 方法。</p>
+<p><code>resolve(req.responseText)</code> 在response的内容中加入了参数。 resolve方法的参数并没有特别的规则，基本上把要传给回调函数参数放进去就可以了。 ( <code>then</code> 方法可以接收到这个参数值)</p>
+<p>熟悉Node.js的人，经常会在写回调函数时将 <code>callback(error, response)</code> 的第一个参数设为error对象，而在Promise中resolve/reject则担当了这个职责（处理正常和异常的情况），所以 在resolve方法中只传一个response参数是没有问题的。</p>
+<p>XHR中 <code>onerror</code> 事件被触发的时候就是发生错误时，所以理所当然调用<code>reject</code>。 这里我们重点来看一下传给<code>reject</code>的值。</p>
+<p>发生错误时要像这样 <code>reject(new Error(req.statusText));</code> ，创建一个Error对象后再将具体的值传进去。 传给<code>reject</code> 的参数也没有什么特殊的限制，一般只要是Error对象（或者继承自Error对象）就可以。</p>
+<p>传给<code>reject</code> 的参数，其中一般是包含了reject原因的Error对象。 本次因为状态值不等于200而被reject，所以<code>reject</code> 中放入的是statusText。 （这个参数的值可以被 <code>then</code> 方法的第二个参数或者 <code>catch</code> 方法中使用）</p>
+<h4 id="编写promise对象处理方法"><a href="#编写promise对象处理方法" class="headerlink" title="编写promise对象处理方法"></a>编写promise对象处理方法</h4><p>我们在实际中使用一下刚才创建的返回promise对象的函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getURL(&quot;http://example.com/&quot;); // =&gt; 返回promise对象</div></pre></td></tr></table></figure>
+<p>如<em>Promises Overview</em>中做的简单介绍一样，promise对象拥有几个实例方法， 我们使用这些实例方法来为promise对象创建依赖于promise的具体状态、并且只会被执行一次的回调函数。</p>
+<p>为promise对象添加处理方法主要有以下两种</p>
+<ul>
+<li>promise对象被 <strong>resolve</strong> 时的处理(onFulfilled)</li>
+<li>promise对象被 <strong>reject</strong> 时的处理(onRejected)</li>
+</ul>
+<p>首先，我们来尝试一下为 <code>getURL</code> 通信成功并取到值时添加的处理函数。</p>
+<p>此时所谓的 <em>通信成功</em> ， 指的就是在被resolve后， <em>promise对象变为FulFilled状态</em> 。</p>
+<p>被<strong>resolve</strong>后的处理，可以在<a href="http://liubin.org/promises-book/#promise.then" target="_blank" rel="external"><code>.then</code></a> 方法中传入想要调用的函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var URL = &quot;http://httpbin.org/get&quot;;</div><div class="line">getURL(URL).then(function onFulfilled(value)&#123; </div><div class="line">    console.log(value);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><a href="http://liubin.org/promises-book/#xhr-promise.js" target="_blank" rel="external">getURL函数</a> 中的 <code>resolve(req.responseText);</code> 会将promise对象变为resolve（Fulfilled）状态， 同时使用其值调用 <code>onFulfilled</code>函数。</p>
+<p>不过目前我们还没有对其中可能发生的错误做任何处理， 接下来，我们就来为 <code>getURL</code> 函数添加发生错误时的异常处理。</p>
+<p>此时 <em>发生错误</em> ， 指的也就是reject后 <em>promise对象变为Rejected状态</em> 。</p>
+<p>被<strong>reject</strong>后的处理，可以在<a href="http://liubin.org/promises-book/#promise.then" target="_blank" rel="external"><code>.then</code> 的第二个参数</a> 或者是在 <a href="http://liubin.org/promises-book/#promise.catch" target="_blank" rel="external"><code>.catch</code></a> 方法中设置想要调用的函数。</p>
+<p>把下面reject时的处理加入到刚才的代码，如下所示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">var URL = &quot;http://httpbin.org/status/500&quot;; 		//1</div><div class="line">getURL(URL).then(function onFulfilled(value)&#123;</div><div class="line">    console.log(value);</div><div class="line">&#125;).catch(function onRejected(error)&#123; 			//2</div><div class="line">    console.error(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ol>
+<li>服务端返回的状态码为500</li>
+<li>为了方便理解函数被命名为 <code>onRejected</code></li>
+</ol>
+<p>在<code>getURL</code> 的处理中发生任何异常，或者被明确reject的情况下， 该异常原因（Error对象）会作为 <a href="http://liubin.org/promises-book/#promise.catch" target="_blank" rel="external"><code>.catch</code></a> 方法的参数被调用。</p>
+<p>其实 <a href="http://liubin.org/promises-book/#promise.catch" target="_blank" rel="external"><code>.catch</code></a>只是 <code>promise.then(undefined, onRejected)</code> 的别名而已， 如下代码也可以完成同样的功能。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">getURL(URL).then(onFulfilled, onRejected);	//1</div></pre></td></tr></table></figure>
+<ol>
+<li>onFulfilled, onRejected 是和刚才相同的函数</li>
+</ol>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>用 <code>new Promise</code> 方法创建promise对象</li>
+<li>用<a href="http://liubin.org/promises-book/#promise.then" target="_blank" rel="external"><code>.then</code></a> 或 <a href="http://liubin.org/promises-book/#promise.catch" target="_blank" rel="external"><code>.catch</code></a> 添加promise对象的处理函数</li>
+</ul>
+<p>实际上即使使用回调方式的写法也能完成上面同样的工作，而使用Promise方式的话有什么优点么？在本小节中我们没有讲到两者的对比及Promise的优点。在接下来的章节中，我们将会对Promise优点之一，即<strong>错误处理机制</strong>进行介绍，以及和传统的回调方式的对比。</p>
+<h2 id="实战Promise"><a href="#实战Promise" class="headerlink" title="实战Promise"></a>实战Promise</h2><h3 id="Promise-resolve"><a href="#Promise-resolve" class="headerlink" title="Promise.resolve"></a>Promise.resolve</h3><h4 id="new-Promise的快捷方式"><a href="#new-Promise的快捷方式" class="headerlink" title="new Promise的快捷方式"></a>new Promise的快捷方式</h4><p>静态方法<a href="http://liubin.org/promises-book/#Promise.resolve" target="_blank" rel="external"><code>Promise.resolve(value)</code></a> 可以认为是 <code>new Promise()</code> 方法的快捷方式。</p>
+<p>比如 <code>Promise.resolve(42);</code> 可以认为是以下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">new Promise(function(resolve)&#123;</div><div class="line">    resolve(42);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>在这段代码中的 <code>resolve(42);</code> 会让这个promise对象立即进入确定（即resolved）状态，并将 <code>42</code> 传递给后面then里所指定的 <code>onFulfilled</code> 函数。</p>
+<p>方法 <code>Promise.resolve(value);</code> 的返回值也是一个promise对象，所以我们可以像下面那样接着对其返回值进行 <code>.then</code> 调用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Promise.resolve(42).then(function(value)&#123;</div><div class="line">    console.log(value);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><a href="http://liubin.org/promises-book/#Promise.resolve" target="_blank" rel="external">Promise.resolve</a>作为 <code>new Promise()</code> 的快捷方式，在进行promise对象的初始化或者编写测试代码的时候都非常方便。</p>
+<h4 id="Thenable"><a href="#Thenable" class="headerlink" title="Thenable"></a>Thenable</h4><p><code>Promise.resolve</code> 方法另一个作用就是将 <a href="http://liubin.org/promises-book/#Thenable" target="_blank" rel="external">thenable</a> 对象转换为promise对象。</p>
+<p><a href="http://liubin.org/promises-book/#es6-promises" target="_blank" rel="external">ES6 Promises</a>里提到了<a href="http://liubin.org/promises-book/#Thenable" target="_blank" rel="external">Thenable</a>这个概念，简单来说它就是一个非常类似promise的东西。</p>
+<p>就像我们有时称具有 <code>.length</code> 方法的非数组对象为Array like一样，thenable指的是一个具有 <code>.then</code> 方法的对象。</p>
+<p>这种将thenable对象转换为promise对象的机制要求thenable对象所拥有的 <code>then</code> 方法应该和Promise所拥有的 <code>then</code> 方法具有同样的功能和处理过程，在将thenable对象转换为promise对象的时候，还会巧妙的利用thenable对象原来具有的 <code>then</code> 方法。</p>
+<p>到底什么样的对象能算是thenable的呢，最简单的例子就是 <a href="https://api.jquery.com/jQuery.ajax/" target="_blank" rel="external">jQuery.ajax()</a>，它的返回值就是thenable的。</p>
+<p>因为<code>jQuery.ajax()</code> 的返回值是 <a href="http://api.jquery.com/jQuery.ajax/#jqXHR" target="_blank" rel="external">jqXHR Object</a> 对象，这个对象具有 <code>.then</code> 方法。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.ajax(<span class="string">'/json/comment.json'</span>);<span class="comment">// =&gt; 拥有 `.then` 方法的对象</span></div></pre></td></tr></table></figure>
+<p>这个thenable的对象可以使用 <code>Promise.resolve</code> 来转换为一个promise对象。</p>
+<p>变成了promise对象的话，就能直接使用 <code>then</code> 或者 <code>catch</code> 等这些在 <a href="http://liubin.org/promises-book/#es6-promises" target="_blank" rel="external">ES6 Promises</a>里定义的方法了。</p>
+<p>将thenable对象转换promise对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">var promise = Promise.resolve($.ajax(&apos;/json/comment.json&apos;));// =&gt; promise对象</div><div class="line">promise.then(function(value)&#123;</div><div class="line">   console.log(value);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><strong>注意</strong></p>
+<p>jQuery和thenable</p>
+<p><a href="https://api.jquery.com/jQuery.ajax/" target="_blank" rel="external">jQuery.ajax()</a>的返回值是一个具有 <code>.then</code> 方法的 <a href="http://api.jquery.com/jQuery.ajax/#jqXHR" target="_blank" rel="external">jqXHR Object</a>对象，这个对象继承了来自 <a href="http://api.jquery.com/category/deferred-object/" target="_blank" rel="external">Deferred Object</a> 的方法和属性。</p>
+<p>但是Deferred Object并没有遵循<a href="http://liubin.org/promises-book/#promises-aplus" target="_blank" rel="external">Promises/A+</a>或<a href="http://liubin.org/promises-book/#es6-promises" target="_blank" rel="external">ES6 Promises</a>标准，所以即使看上去这个对象转换成了一个promise对象，但是会出现缺失部分信息的问题。</p>
+<p>这个问题的根源在于jQuery的 <a href="http://api.jquery.com/category/deferred-object/" target="_blank" rel="external">Deferred Object</a> 的 <code>then</code> 方法机制与promise不同。</p>
+<p>所以我们应该注意，即使一个对象具有 <code>.then</code> 方法，也不一定就能作为ES6 Promises对象使用。</p>
+<p><code>Promise.resolve</code> 只使用了共通的方法 <code>then</code> ，提供了在不同的类库之间进行promise对象互相转换的功能。</p>
+<p>这种转换为thenable的功能在之前是通过使用 <code>Promise.cast</code> 来完成的，从它的名字我们也不难想象它的功能是什么。</p>
+<p>除了在编写使用Promise的类库等软件时需要对Thenable有所了解之外，通常作为end-user使用的时候，我们可能不会用到此功能。</p>
+<p>简单总结一下 <code>Promise.resolve</code> 方法的话，可以认为它的作用就是将传递给它的参数填充（Fulfilled）到promise对象后并返回这个promise对象。</p>
+<h3 id="Promise-reject"><a href="#Promise-reject" class="headerlink" title="Promise.reject"></a>Promise.reject</h3><p><a href="http://liubin.org/promises-book/#Promise.reject" target="_blank" rel="external"><code>Promise.reject(error)</code></a>是和 <a href="http://liubin.org/promises-book/#Promise.resolve" target="_blank" rel="external"><code>Promise.resolve(value)</code></a> 类似的静态方法，是 <code>new Promise()</code> 方法的快捷方式。</p>
+<p>比如 <code>Promise.reject(new Error(&quot;出错了&quot;))</code> 就是下面代码的语法糖形式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">new Promise(function(resolve,reject)&#123;</div><div class="line">    reject(new Error(&quot;出错了&quot;));</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>这段代码的功能是调用该promise对象通过then指定的 <code>onRejected</code> 函数，并将错误（Error）对象传递给这个 <code>onRejected</code> 函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Promise.reject(new Error(&quot;BOOM!&quot;)).catch(function(error)&#123;</div><div class="line">    console.error(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>它和<a href="http://liubin.org/promises-book/#Promise.resolve" target="_blank" rel="external"><code>Promise.resolve(value)</code></a> 的不同之处在于promise内调用的函数是reject而不是resolve，这在编写测试代码或者进行debug时，说不定会用得上。</p>
+<h3 id="专栏-Promise只能进行异步操作？"><a href="#专栏-Promise只能进行异步操作？" class="headerlink" title="专栏: Promise只能进行异步操作？"></a>专栏: Promise只能进行异步操作？</h3><p>在使用<a href="http://liubin.org/promises-book/#Promise.resolve" target="_blank" rel="external"><code>Promise.resolve(value)</code></a> 等方法的时候，如果promise对象立刻就能进入resolve状态的话，那么你是不是觉得 <code>.then</code> 里面指定的方法就是同步调用的呢？</p>
+<p>实际上， <code>.then</code> 中指定的方法调用是异步进行的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">var promise = new Promise(function (resolve)&#123;</div><div class="line">    console.log(&quot;inner promise&quot;); // 1</div><div class="line">    resolve(42);</div><div class="line">&#125;);</div><div class="line">promise.then(function(value)&#123;</div><div class="line">    console.log(value); // 3</div><div class="line">&#125;);</div><div class="line">console.log(&quot;outer promise&quot;); // 2</div></pre></td></tr></table></figure>
+<p>执行上面的代码会输出下面的log，从这些log我们清楚地知道了上面代码的执行顺序。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">inner promise // 1</div><div class="line">outer promise // 2</div><div class="line">42            // 3</div></pre></td></tr></table></figure>
+<p>由于JavaScript代码会按照文件的从上到下的顺序执行，所以最开始 <code>&lt;1&gt;</code> 会执行，然后是 <code>resolve(42);</code> 被执行。这时候 <code>promise</code> 对象的已经变为确定状态，FulFilled被设置为了 <code>42</code> 。</p>
+<p>下面的代码 <code>promise.then</code> 注册了 <code>&lt;3&gt;</code> 这个回调函数，这是本专栏的焦点问题。</p>
+<p>由于 <code>promise.then</code> 执行的时候promise对象已经是确定状态，从程序上说对回调函数进行同步调用也是行得通的。</p>
+<p>但是即使在调用 <code>promise.then</code> 注册回调函数的时候promise对象已经是确定的状态，Promise也会以异步的方式调用该回调函数，这是在Promise设计上的规定方针。</p>
+<p>因此 <code>&lt;2&gt;</code> 会最先被调用，最后才会调用回调函数 <code>&lt;3&gt;</code> 。</p>
+<p>为什么要对明明可以以同步方式进行调用的函数，非要使用异步的调用方式呢？</p>
+<h4 id="同步调用和异步调用同时存在导致的混乱"><a href="#同步调用和异步调用同时存在导致的混乱" class="headerlink" title="同步调用和异步调用同时存在导致的混乱"></a>同步调用和异步调用同时存在导致的混乱</h4><p>其实在Promise之外也存在这个问题，这里我们以一般的使用情况来考虑此问题。</p>
+<p>这个问题的本质是接收回调函数的函数，会根据具体的执行情况，可以选择是以同步还是异步的方式对回调函数进行调用。</p>
+<p>下面我们以 <code>onReady(fn)</code> 为例进行说明，这个函数会接收一个回调函数进行处理。</p>
+<p>mixed-onready.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function onReady(fn) &#123;</div><div class="line">    var readyState = document.readyState;</div><div class="line">    if (readyState === &apos;interactive&apos; || readyState === &apos;complete&apos;) &#123;</div><div class="line">        fn();</div><div class="line">    &#125; else &#123;</div><div class="line">        window.addEventListener(&apos;DOMContentLoaded&apos;, fn);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">onReady(function () &#123;</div><div class="line">    console.log(&apos;DOM fully loaded and parsed&apos;);</div><div class="line">&#125;);</div><div class="line">console.log(&apos;==Starting==&apos;);</div></pre></td></tr></table></figure>
+<p><a href="http://liubin.org/promises-book/#mixed-onready.js" target="_blank" rel="external">mixed-onready.js</a>会根据执行时DOM是否已经装载完毕来决定是对回调函数进行同步调用还是异步调用。</p>
+<p>如果在调用onReady之前DOM已经载入的话</p>
+<p>对回调函数进行同步调用</p>
+<p>如果在调用onReady之前DOM还没有载入的话</p>
+<p>通过注册 <code>DOMContentLoaded</code> 事件监听器来对回调函数进行异步调用</p>
+<p>因此，如果这段代码在源文件中出现的位置不同，在控制台上打印的log消息顺序也会不同。</p>
+<p>为了解决这个问题，我们可以选择统一使用异步调用的方式。</p>
+<p>async-onready.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function onReady(fn) &#123;</div><div class="line">    var readyState = document.readyState;</div><div class="line">    if (readyState === &apos;interactive&apos; || readyState === &apos;complete&apos;) &#123;</div><div class="line">        setTimeout(fn, 0);</div><div class="line">    &#125; else &#123;</div><div class="line">        window.addEventListener(&apos;DOMContentLoaded&apos;, fn);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">onReady(function () &#123;</div><div class="line">    console.log(&apos;DOM fully loaded and parsed&apos;);</div><div class="line">&#125;);</div><div class="line">console.log(&apos;==Starting==&apos;);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">绝对不能对异步回调函数（即使在数据已经就绪）进行同步调用。</div><div class="line"></div><div class="line">如果对异步回调函数进行同步调用的话，处理顺序可能会与预期不符，可能带来意料之外的后果。</div><div class="line"></div><div class="line">对异步回调函数进行同步调用，还可能导致栈溢出或异常处理错乱等问题。</div><div class="line"></div><div class="line">如果想在将来某时刻调用异步回调函数的话，可以使用 setTimeout 等异步API。</div><div class="line">Effective JavaScript</div><div class="line">— David Herman</div></pre></td></tr></table></figure>
+<p>前面我们看到的 <code>promise.then</code> 也属于此类，为了避免上述中同时使用同步、异步调用可能引起的混乱问题，Promise在规范上规定 <strong>Promise只能使用异步调用方式</strong> 。</p>
+<p>最后，如果将上面的 <code>onReady</code> 函数用Promise重写的话，代码如下面所示。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function onReadyPromise() &#123;</div><div class="line">    return new Promise(function (resolve, reject) &#123;</div><div class="line">        var readyState = document.readyState;</div><div class="line">        if (readyState === &apos;interactive&apos; || readyState === &apos;complete&apos;) &#123;</div><div class="line">            resolve();</div><div class="line">        &#125; else &#123;</div><div class="line">            window.addEventListener(&apos;DOMContentLoaded&apos;, resolve);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">onReadyPromise().then(function () &#123;</div><div class="line">    console.log(&apos;DOM fully loaded and parsed&apos;);</div><div class="line">&#125;);</div><div class="line">console.log(&apos;==Starting==&apos;);</div></pre></td></tr></table></figure>
+<p>由于Promise保证了每次调用都是以异步方式进行的，所以我们在实际编码中不需要调用 <code>setTimeout</code> 来自己实现异步调用。</p>
+<h3 id="Promise-then"><a href="#Promise-then" class="headerlink" title="Promise#then"></a>Promise#then</h3><p>在前面的章节里我们对Promise基本的实例方法 <code>then</code> 和 <code>catch</code> 的使用方法进行了说明。</p>
+<p>这其中，我想大家已经认识了 <code>.then().catch()</code> 这种链式方法的写法了，其实在Promise里可以将任意个方法连在一起作为一个方法链（method chain）。</p>
+<p>promise可以写成方法链的形式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">aPromise.then(function taskA(value)&#123;</div><div class="line">// task A</div><div class="line">&#125;).then(function taskB(vaue)&#123;</div><div class="line">// task B</div><div class="line">&#125;).catch(function onRejected(error)&#123;</div><div class="line">    console.log(error);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>如果把在 <code>then</code> 中注册的每个回调函数称为task的话，那么我们就可以通过Promise方法链方式来编写能以taskA → task B 这种流程进行处理的逻辑了。</p>
+<p>Promise方法链这种叫法有点长（其实是在日语里有点长，中文还可以 –译者注），因此后面我们会简化为 <a href="http://liubin.org/promises-book/#promise-chain" target="_blank" rel="external">promise chain</a> 这种叫法。</p>
+<p>Promise之所以适合编写异步处理较多的应用，promise chain可以算得上是其中的一个原因吧。</p>
+<p>在本小节，我们将主要针对使用 <code>then</code> 的promise chain的行为和流程进行学习。</p>
+<h4 id="Promise-chain"><a href="#Promise-chain" class="headerlink" title="Promise chain"></a>Promise chain</h4><p>在第一章 <a href="http://liubin.org/promises-book/#promise-chain" target="_blank" rel="external">promise chain</a> 里我们看到了一个很简单的 then → catch 的例子，如果我们将方法链的长度变得更长的话，那在每个promise对象中注册的onFulfilled和onRejected将会怎样执行呢？</p>
+<p>注：promise chain - 即方法链越短越好。 在这个例子里我们是为了方便说明才选择了较长的方法链。</p>
+<p>我们先来看看下面这样的promise chain。</p>
+<p>promise-then-catch-flow.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function taskA() &#123;</div><div class="line">    console.log(&quot;Task A&quot;);</div><div class="line">&#125;</div><div class="line">function taskB() &#123;</div><div class="line">    console.log(&quot;Task B&quot;);</div><div class="line">&#125;</div><div class="line">function onRejected(error) &#123;</div><div class="line">    console.log(&quot;Catch Error: A or B&quot;, error);</div><div class="line">&#125;</div><div class="line">function finalTask() &#123;</div><div class="line">    console.log(&quot;Final Task&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">var promise = Promise.resolve();</div><div class="line">promise</div><div class="line">    .then(taskA)</div><div class="line">    .then(taskB)</div><div class="line">    .catch(onRejected)</div><div class="line">    .then(finalTask);</div></pre></td></tr></table></figure>
+<p>上面代码中的promise chain的执行流程</p>
+<p><img src="http://github.com/crazycs520/images/blob/master/3.png?raw=true" alt=""></p>
+<p>在 <a href="http://liubin.org/promises-book/#promise-then-catch-flow.js" target="_blank" rel="external">上述代码</a> 中，我们没有为 <code>then</code> 方法指定第二个参数(onRejected)，也可以像下面这样来理解。</p>
+<ul>
+<li><p><code>then</code></p>
+<p>注册onFulfilled时的回调函数</p>
+</li>
+<li><p><code>catch</code></p>
+<p>注册onRejected时的回调函数</p>
+</li>
+</ul>
+<p>再看一下 <a href="http://liubin.org/promises-book/#promise-then-catch-flow.png" target="_blank" rel="external">上面的流程图</a> 的话，我们会发现 <em>Task A</em> 和 <em>Task B</em> 都有指向 <em>onRejected</em> 的线出来。</p>
+<p>这些线的意思是在 <em>Task A</em> 或 <em>Task B</em> 的处理中，在下面的情况下就会调用 <em>onRejected</em> 方法。</p>
+<ul>
+<li>发生异常的时候</li>
+<li>返回了一个Rejected状态的promise对象</li>
+</ul>
+<h3 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h3><ol>
+<li>使用<code>promise.then(onFulfilled, onRejected)</code> 的话<ul>
+<li>在 <code>onFulfilled</code> 中发生异常的话，在 <code>onRejected</code> 中是捕获不到这个异常的。</li>
+</ul>
+</li>
+<li>在 <code>promise.then(onFulfilled).catch(onRejected)</code> 的情况下<ul>
+<li><code>then</code> 中产生的异常能在 <code>.catch</code> 中捕获</li>
+</ul>
+</li>
+<li><a href="http://liubin.org/promises-book/#promise.then" target="_blank" rel="external"><code>.then</code></a> 和 <a href="http://liubin.org/promises-book/#promise.catch" target="_blank" rel="external"><code>.catch</code></a> 在本质上是没有区别的<ul>
+<li>需要分场合使用。</li>
+</ul>
+</li>
+</ol>
+<h2 id="Promise-测试"><a href="#Promise-测试" class="headerlink" title="Promise 测试"></a>Promise 测试</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://crazycs.com/2017/03/05/Promise/" data-id="cizxzbgou0002rscfnb7goq8s" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-MongoDB" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/03/05/MongoDB/" class="article-date">
@@ -136,10 +440,271 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ mongo</div><div class="line">MongoDB shell version v3.4.2</div><div class="line">connecting to: mongodb://127.0.0.1:27017</div><div class="line">&gt; db</div><div class="line">test</div></pre></td></tr></table></figure>
 <p>运行”use”命令，可以连接到一个指定的数据库。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; use local</div><div class="line">switched to db local</div><div class="line">&gt; db</div><div class="line">local</div></pre></td></tr></table></figure>
+<h3 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h3><p>文档是一个键值(key-value)对(即BSON)。</p>
+<p>文档的数据结构和JSON基本一样。</p>
+<p>所有存储在集合中的数据都是BSON格式。</p>
+<p>BSON是一种类json的一种二进制形式的存储格式,简称Binary JSON。</p>
+<p>一个简单的文档例子如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&quot;site&quot;:&quot;www.runoob.com&quot;, &quot;name&quot;:&quot;菜鸟教程&quot;&#125;</div></pre></td></tr></table></figure>
+<p> RDBMS 与 MongoDB 对应的术语：</p>
+<table>
+<thead>
+<tr>
+<th>RDBMS</th>
+<th>MongoDB</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据库</td>
+<td>数据库</td>
+</tr>
+<tr>
+<td>表格</td>
+<td>集合</td>
+</tr>
+<tr>
+<td>行</td>
+<td>文档</td>
+</tr>
+<tr>
+<td>列</td>
+<td>字段</td>
+</tr>
+<tr>
+<td>表联合</td>
+<td>嵌入文档</td>
+</tr>
+<tr>
+<td>主键</td>
+<td>主键 (MongoDB 提供了 key 为 _id )</td>
+</tr>
+</tbody>
+</table>
+<p>需要注意的是：</p>
+<ol>
+<li>文档中的键/值对是有序的。</li>
+<li>文档中的值不仅可以是在双引号里面的字符串，还可以是其他几种数据类型（甚至可以是整个嵌入的文档)。</li>
+<li>MongoDB区分类型和大小写。</li>
+<li>MongoDB的文档不能有重复的键。</li>
+<li>文档的键是字符串。除了少数例外情况，键可以使用任意UTF-8字符。</li>
+</ol>
+<p>文档键命名规范：</p>
+<ul>
+<li>键不能含有\0 (空字符)。这个字符用来表示键的结尾。</li>
+<li>.和$有特别的意义，只有在特定环境下才能使用。</li>
+<li>以下划线”_”开头的键是保留的(不是严格要求的)。</li>
+</ul>
+<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><p>集合就是 MongoDB 文档组，类似于 RDBMS （关系数据库管理系统：Relational Database Management System)中的表格。</p>
+<p>集合存在于数据库中，集合没有固定的结构，这意味着你在对集合可以插入不同格式和类型的数据，但通常情况下我们插入集合的数据都会有一定的关联性。</p>
+<p>比如，我们可以将以下不同数据结构的文档插入到集合中：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="attr">"site"</span>:<span class="string">"www.baidu.com"</span>&#125;</div><div class="line">&#123;<span class="attr">"site"</span>:<span class="string">"www.google.com"</span>,<span class="attr">"name"</span>:<span class="string">"Google"</span>&#125;</div><div class="line">&#123;<span class="attr">"site"</span>:<span class="string">"www.runoob.com"</span>,<span class="attr">"name"</span>:<span class="string">"菜鸟教程"</span>,<span class="attr">"num"</span>:<span class="number">5</span>&#125;</div></pre></td></tr></table></figure>
+<p>当第一个文档插入时，集合就会被创建。</p>
+<h4 id="capped-collections"><a href="#capped-collections" class="headerlink" title="capped collections"></a>capped collections</h4><p>Capped collections 就是固定大小的collection。</p>
+<p>它有很高的性能以及队列过期的特性(过期按照插入的顺序). 有点和 “RRD” 概念类似。</p>
+<p>Capped collections是高性能自动的维护对象的插入顺序。它非常适合类似记录日志的功能 和标准的collection不同，你必须要显式的创建一个capped collection， 指定一个collection的大小，单位是字节。collection的数据存储空间值提前分配的。</p>
+<p>要注意的是指定的存储大小包含了数据库的头信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.createCollection(&quot;mycoll&quot;, &#123;capped:true, size:100000&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>在capped collection中，你能添加新的对象。</li>
+<li>能进行更新，然而，对象不会增加存储空间。如果增加，更新就会失败 。</li>
+<li>数据库不允许进行删除。使用drop()方法删除collection所有的行。</li>
+<li>注意: 删除之后，你必须显式的重新创建这个collection。</li>
+<li>在32bit机器中，capped collection最大存储为1e9( 1X10^9)个字节。</li>
+</ul>
+<h3 id="元数据"><a href="#元数据" class="headerlink" title="元数据"></a>元数据</h3><p>数据库的信息是存储在集合中。它们使用了系统的命名空间：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dbname.system.*</div></pre></td></tr></table></figure>
+<p>在MongoDB数据库中名字空间 <dbname>.system.* 是包含多种系统信息的特殊集合(Collection)，如下:</dbname></p>
+<table>
+<thead>
+<tr>
+<th>集合命名空间</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dbname.system.namespaces</td>
+<td>列出所有名字空间。</td>
+</tr>
+<tr>
+<td>dbname.system.indexes</td>
+<td>列出所有索引。</td>
+</tr>
+<tr>
+<td>dbname.system.profile</td>
+<td>包含数据库概要(profile)信息。</td>
+</tr>
+<tr>
+<td>dbname.system.users</td>
+<td>列出所有可访问数据库的用户。</td>
+</tr>
+<tr>
+<td>dbname.local.sources</td>
+<td>包含复制对端（slave）的服务器信息和状态。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="MongoDB数据类型"><a href="#MongoDB数据类型" class="headerlink" title="MongoDB数据类型"></a>MongoDB数据类型</h3><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>String</td>
+<td>字符串。存储数据常用的数据类型。在 MongoDB 中，UTF-8 编码的字符串才是合法的。</td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>整型数值。用于存储数值。根据你所采用的服务器，可分为 32 位或 64 位。</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>布尔值。用于存储布尔值（真/假）</td>
+</tr>
+<tr>
+<td>Double</td>
+<td>双精度浮点值。用于存储浮点值。</td>
+</tr>
+<tr>
+<td>Min/Max keys</td>
+<td>将一个值与 BSON（二进制的 JSON）元素的最低值和最高值相对比。</td>
+</tr>
+<tr>
+<td>Arrays</td>
+<td>用于将数组或列表或多个值存储为一个键。</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>时间戳。记录文档修改或添加的具体时间。</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>用于内嵌文档。</td>
+</tr>
+<tr>
+<td>Null</td>
+<td>用于创建空值。</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td>符号。该数据类型基本上等同于字符串类型，但不同的是，它一般用于采用特殊符号类型的语言。</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>日期时间。用 UNIX 时间格式来存储当前日期或时间。你可以指定自己的日期时间：创建 Date 对象，传入年月日信息。</td>
+</tr>
+<tr>
+<td>Object ID</td>
+<td>对象 ID。用于创建文档的 ID。</td>
+</tr>
+<tr>
+<td>Binary Date</td>
+<td>二进制数据。用于存储二进制数据。</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>代码类型。用于在文档中存储 JavaScript 代码。</td>
+</tr>
+<tr>
+<td>Regular expression</td>
+<td>正则表达式类型。用于存储正则表达式。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="MongoDB-连接"><a href="#MongoDB-连接" class="headerlink" title="MongoDB 连接"></a>MongoDB 连接</h2><p>使用 MongoDB shell 来连接 Mongodb 服务:</p>
+<p>标准 URI 连接语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mongodb://[username:password@]host1[:port1][,host2[:port2],...[,hostN[:portN]]][/[database][?options]]</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>mongodb://</strong> 这是固定的格式，必须要指定。</li>
+<li><strong>username:password@</strong> 可选项，如果设置，在连接数据库服务器之后，驱动都会尝试登陆这个数据库</li>
+<li><strong>host1</strong> 必须的指定至少一个host, host1 是这个URI唯一要填写的。它指定了要连接服务器的地址。如果要连接复制集，请指定多个主机地址。</li>
+<li><strong>portX</strong> 可选的指定端口，如果不填，默认为27017</li>
+<li><strong>/database </strong>如果指定username:password@，连接并验证登陆指定数据库。若不指定，默认打开admin数据库。</li>
+<li><strong>?options</strong> 是连接选项。如果不使用/database，则前面需要加上/。所有连接选项都是键值对name=value，键值对之间通过&amp;或;（分号）隔开</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>replicaSet=name</td>
+<td>验证replica set的名称。 Impliesconnect=replicaSet.</td>
+</tr>
+<tr>
+<td>safe=true\</td>
+<td>false</td>
+<td>true: 在执行更新操作之后，驱动都会发送getLastError命令来确保更新成功。(还要参考 wtimeoutMS).　 false: 在每次更新之后，驱动不会发送getLastError来确保更新成功。</td>
+</tr>
+<tr>
+<td>journal=true\</td>
+<td>false</td>
+<td>如果设置为 true, 同步到 journal (在提交到数据库前写入到实体中). 应用于 safe=true</td>
+</tr>
+<tr>
+<td>connectTimeoutMS=ms</td>
+<td>可以打开连接的时间。</td>
+</tr>
+<tr>
+<td>socketTimeoutMS=ms</td>
+<td>发送和接受sockets的时间。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><p>MongoDB 创建数据库的语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">use DATABASE_NAME</div></pre></td></tr></table></figure>
+<p>如果数据库不存在，则创建数据库，否则切换到指定数据库。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">use test</div></pre></td></tr></table></figure>
+<p>如果你想查看所有数据库，可以使用 <strong>show dbs</strong> 命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; show dbs</div><div class="line">local  0.078GB</div><div class="line">test   0.078GB</div></pre></td></tr></table></figure>
+<p>可以看到，我们刚创建的数据库 test 并不在数据库的列表中， 要显示它，我们需要向 test 数据库插入一些数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; db.test.insert(&#123;&quot;name&quot;:&quot;菜鸟教程&quot;&#125;)</div><div class="line">WriteResult(&#123; &quot;nInserted&quot; : 1 &#125;)</div><div class="line">&gt; show dbs</div><div class="line">local   0.078GB</div><div class="line">runoob  0.078GB</div><div class="line">test    0.078GB</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>MongoDB 中默认的数据库为 test，如果你没有创建新的数据库，集合将存放在 test 数据库中。</p>
+<h2 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h2><p>MongoDB 删除数据库的语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.dropDatabase()</div></pre></td></tr></table></figure>
+<p>删除<strong>当前数据库</strong>，默认为 test，你可以使用 db 命令查看当前数据库名。</p>
+<h2 id="插入文档"><a href="#插入文档" class="headerlink" title="插入文档"></a>插入文档</h2><p>MongoDB 使用 insert() 或 save() 方法向集合中插入文档，语法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.COLLECTION_NAME.insert(document)</div></pre></td></tr></table></figure>
+<p>以下文档可以存储在 MongoDB 的 runoob 数据库 的 col集合中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;db.col.insert(&#123;title: &apos;MongoDB 教程&apos;, </div><div class="line">    description: &apos;MongoDB 是一个 Nosql 数据库&apos;,</div><div class="line">    by: &apos;菜鸟教程&apos;,</div><div class="line">    url: &apos;http://www.runoob.com&apos;,</div><div class="line">    tags: [&apos;mongodb&apos;, &apos;database&apos;, &apos;NoSQL&apos;],</div><div class="line">    likes: 100</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>以上实例中 col 是集合名，如果该集合不在该数据库中， MongoDB 会自动创建该集合并插入文档。</p>
+<p>查看已插入文档：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; db.col.find()</div><div class="line">&#123; &quot;_id&quot; : ObjectId(&quot;56064886ade2f21f36b03134&quot;), &quot;title&quot; : &quot;MongoDB 教程&quot;, &quot;description&quot; : &quot;MongoDB 是一个 Nosql 数据库&quot;, &quot;by&quot; : &quot;菜鸟教程&quot;, &quot;url&quot; : &quot;http://www.runoob.com&quot;, &quot;tags&quot; : [ &quot;mongodb&quot;, &quot;database&quot;, &quot;NoSQL&quot; ], &quot;likes&quot; : 100 &#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>我们也可以将数据定义为一个变量，如下所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt; document=(&#123;title: &apos;MongoDB 教程&apos;, </div><div class="line">    description: &apos;MongoDB 是一个 Nosql 数据库&apos;,</div><div class="line">    by: &apos;菜鸟教程&apos;,</div><div class="line">    url: &apos;http://www.runoob.com&apos;,</div><div class="line">    tags: [&apos;mongodb&apos;, &apos;database&apos;, &apos;NoSQL&apos;],</div><div class="line">    likes: 100</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>执行后显示结果如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">        &quot;title&quot; : &quot;MongoDB 教程&quot;,</div><div class="line">        &quot;description&quot; : &quot;MongoDB 是一个 Nosql 数据库&quot;,</div><div class="line">        &quot;by&quot; : &quot;菜鸟教程&quot;,</div><div class="line">        &quot;url&quot; : &quot;http://www.runoob.com&quot;,</div><div class="line">        &quot;tags&quot; : [</div><div class="line">                &quot;mongodb&quot;,</div><div class="line">                &quot;database&quot;,</div><div class="line">                &quot;NoSQL&quot;</div><div class="line">        ],</div><div class="line">        &quot;likes&quot; : 100</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>执行插入操作：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; db.col.insert(document)</div><div class="line">WriteResult(&#123; &quot;nInserted&quot; : 1 &#125;)</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>插入文档你也可以使用 db.col.save(document) 命令。如果不指定 _id 字段 save() 方法类似于 insert() 方法。如果指定 _id 字段，则会更新该 _id 的数据。</p>
+<h2 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h2><h2 id="update-方法"><a href="#update-方法" class="headerlink" title="update() 方法"></a>update() 方法</h2><p>update() 方法用于更新已存在的文档。语法格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">db.collection.update(</div><div class="line">   &lt;query&gt;,</div><div class="line">   &lt;update&gt;,</div><div class="line">   &#123;</div><div class="line">     upsert: &lt;boolean&gt;,</div><div class="line">     multi: &lt;boolean&gt;,</div><div class="line">     writeConcern: &lt;document&gt;</div><div class="line">   &#125;</div><div class="line">)</div></pre></td></tr></table></figure>
+<p><strong>参数说明：</strong></p>
+<ul>
+<li><strong>query </strong>: update的查询条件，类似sql update查询内where后面的。</li>
+<li><strong>update </strong>: update的对象和一些更新的操作符（如$,$inc…）等，也可以理解为sql update查询内set后面的</li>
+<li><strong>upsert </strong>: 可选，这个参数的意思是，如果不存在update的记录，是否插入objNew,true为插入，默认是false，不插入。</li>
+<li><strong>multi </strong>: 可选，mongodb 默认是false,只更新找到的第一条记录，如果这个参数为true,就把按条件查出来多条记录全部更新。</li>
+<li><strong>writeConcern </strong>:可选，抛出异常的级别。</li>
+</ul>
+<p><strong>实例</strong></p>
+<p>我们在集合 col 中插入如下数据：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&gt;db.col.insert(&#123;</div><div class="line">    title: &apos;MongoDB 教程&apos;, </div><div class="line">    description: &apos;MongoDB 是一个 Nosql 数据库&apos;,</div><div class="line">    by: &apos;菜鸟教程&apos;,</div><div class="line">    url: &apos;http://www.runoob.com&apos;,</div><div class="line">    tags: [&apos;mongodb&apos;, &apos;database&apos;, &apos;NoSQL&apos;],</div><div class="line">    likes: 100</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>接着我们通过 update() 方法来更新标题(title):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&gt;db.col.update(&#123;&apos;title&apos;:&apos;MongoDB 教程&apos;&#125;,&#123;$set:&#123;&apos;title&apos;:&apos;MongoDB&apos;&#125;&#125;)</div><div class="line">WriteResult(&#123; &quot;nMatched&quot; : 1, &quot;nUpserted&quot; : 0, &quot;nModified&quot; : 1 &#125;)   # 输出信息</div><div class="line">&gt; db.col.find().pretty()</div><div class="line">&#123;</div><div class="line">        &quot;_id&quot; : ObjectId(&quot;56064f89ade2f21f36b03136&quot;),</div><div class="line">        &quot;title&quot; : &quot;MongoDB&quot;,</div><div class="line">        &quot;description&quot; : &quot;MongoDB 是一个 Nosql 数据库&quot;,</div><div class="line">        &quot;by&quot; : &quot;菜鸟教程&quot;,</div><div class="line">        &quot;url&quot; : &quot;http://www.runoob.com&quot;,</div><div class="line">        &quot;tags&quot; : [</div><div class="line">                &quot;mongodb&quot;,</div><div class="line">                &quot;database&quot;,</div><div class="line">                &quot;NoSQL&quot;</div><div class="line">        ],</div><div class="line">        &quot;likes&quot; : 100</div><div class="line">&#125;</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>可以看到标题(title)由原来的 “MongoDB 教程” 更新为了 “MongoDB”。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://crazycs.com/2017/03/05/MongoDB/" data-id="cizweu3nj00007ocfhlm0vw1q" class="article-share-link">Share</a>
+      <a data-url="http://crazycs.com/2017/03/05/MongoDB/" data-id="cizxzbgoa0000rscfjajmvvw7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MongoDB/">MongoDB</a></li></ul>
@@ -193,7 +758,7 @@ npm install
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://crazycs.com/2017/03/04/blog/" data-id="cizweu3nw00027ocfswha7x6c" class="article-share-link">Share</a>
+      <a data-url="http://crazycs.com/2017/03/04/blog/" data-id="cizxzbgpm0005rscfqqn4q84m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -515,7 +1080,7 @@ npm install
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://crazycs.com/2017/03/04/express/" data-id="cizweu3o400047ocfqr0538lp" class="article-share-link">Share</a>
+      <a data-url="http://crazycs.com/2017/03/04/express/" data-id="cizxzbgpv0009rscfk96tl87a" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/express/">express</a></li></ul>
@@ -571,11 +1136,16 @@ npm install
 </ul>
 </li>
 </ul>
+<h2 id="exports-和-module-exports"><a href="#exports-和-module-exports" class="headerlink" title="exports 和 module.exports"></a>exports 和 module.exports</h2><ol>
+<li>module.exports 初始值为一个空对象 {}</li>
+<li>exports 是指向的 module.exports 的引用</li>
+<li>require() 返回的是 module.exports 而不是 exports</li>
+</ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://crazycs.com/2017/03/01/nodejs/" data-id="cizweu3oa00057ocfqkjzcpmq" class="article-share-link">Share</a>
+      <a data-url="http://crazycs.com/2017/03/01/nodejs/" data-id="cizxzbgpq0006rscfprdpc517" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js简介/">Node.js简介</a></li></ul>
@@ -599,7 +1169,7 @@ npm install
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js简介/">Node.js简介</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/MongoDB/">MongoDB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js简介/">Node.js简介</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/express/">express</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
     </div>
   </div>
 
@@ -609,7 +1179,7 @@ npm install
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/Node-js简介/" style="font-size: 10px;">Node.js简介</a> <a href="/tags/express/" style="font-size: 10px;">express</a>
+      <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/Node-js简介/" style="font-size: 10px;">Node.js简介</a> <a href="/tags/express/" style="font-size: 10px;">express</a> <a href="/tags/nodejs/" style="font-size: 20px;">nodejs</a>
     </div>
   </div>
 
@@ -631,6 +1201,14 @@ npm install
       <ul>
         
           <li>
+            <a href="/2017/03/06/Session/">Session</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/05/Promise/">Promise</a>
+          </li>
+        
+          <li>
             <a href="/2017/03/05/MongoDB/">MongoDB</a>
           </li>
         
@@ -640,10 +1218,6 @@ npm install
         
           <li>
             <a href="/2017/03/04/express/">express</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/01/nodejs/">Node.JS</a>
           </li>
         
       </ul>

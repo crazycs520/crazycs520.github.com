@@ -3,60 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Node.JS | crazycs</title>
+  <title>Session | crazycs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##Node.JS 简介
-
-共享状态的并发。注意回调函数和错误处理修改内存中的变量（状态）。
-阻塞与非阻塞。nodejs采用事件轮询，故setTimeout()是非阻塞的，异步的。
-Node并发采用事件轮询。
-单线程。调用（执行）堆栈
-错误处理。
-堆栈追踪
-
-##Node 中的 API
-
-全局对象 global
-模块系统的三个核心对象:require,module,export
-事件，监听。
-bu">
+  <meta name="description" content="什么是Sessionsession，中文经常翻译为会话，其本来的含义是指有始有终的一系列动作/消息，比如打电话时从拿起电话拨号到挂断电话这中间的一系列过程可以称之为一个session。有时候我们可以看到这样的话“在一个浏览器会话期间，…”，这里的会话一词用的就是其本义，是指从一个浏览器窗口打开到关闭这个期间①。最混乱的是“用户（客户端）在一次会话期间”这样一句话，它可能指用户的一系列动作（一般情况">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Node.JS">
-<meta property="og:url" content="http://crazycs.com/2017/03/01/nodejs/index.html">
+<meta property="og:title" content="Session">
+<meta property="og:url" content="http://crazycs.com/2017/03/06/Session/index.html">
 <meta property="og:site_name" content="crazycs">
-<meta property="og:description" content="##Node.JS 简介
-
-共享状态的并发。注意回调函数和错误处理修改内存中的变量（状态）。
-阻塞与非阻塞。nodejs采用事件轮询，故setTimeout()是非阻塞的，异步的。
-Node并发采用事件轮询。
-单线程。调用（执行）堆栈
-错误处理。
-堆栈追踪
-
-##Node 中的 API
-
-全局对象 global
-模块系统的三个核心对象:require,module,export
-事件，监听。
-bu">
-<meta property="og:updated_time" content="2017-03-05T09:43:10.275Z">
+<meta property="og:description" content="什么是Sessionsession，中文经常翻译为会话，其本来的含义是指有始有终的一系列动作/消息，比如打电话时从拿起电话拨号到挂断电话这中间的一系列过程可以称之为一个session。有时候我们可以看到这样的话“在一个浏览器会话期间，…”，这里的会话一词用的就是其本义，是指从一个浏览器窗口打开到关闭这个期间①。最混乱的是“用户（客户端）在一次会话期间”这样一句话，它可能指用户的一系列动作（一般情况">
+<meta property="og:updated_time" content="2017-03-06T10:43:35.824Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Node.JS">
-<meta name="twitter:description" content="##Node.JS 简介
-
-共享状态的并发。注意回调函数和错误处理修改内存中的变量（状态）。
-阻塞与非阻塞。nodejs采用事件轮询，故setTimeout()是非阻塞的，异步的。
-Node并发采用事件轮询。
-单线程。调用（执行）堆栈
-错误处理。
-堆栈追踪
-
-##Node 中的 API
-
-全局对象 global
-模块系统的三个核心对象:require,module,export
-事件，监听。
-bu">
+<meta name="twitter:title" content="Session">
+<meta name="twitter:description" content="什么是Sessionsession，中文经常翻译为会话，其本来的含义是指有始有终的一系列动作/消息，比如打电话时从拿起电话拨号到挂断电话这中间的一系列过程可以称之为一个session。有时候我们可以看到这样的话“在一个浏览器会话期间，…”，这里的会话一词用的就是其本义，是指从一个浏览器窗口打开到关闭这个期间①。最混乱的是“用户（客户端）在一次会话期间”这样一句话，它可能指用户的一系列动作（一般情况">
   
     <link rel="alternate" href="/atom.xml" title="crazycs" type="application/atom+xml">
   
@@ -105,10 +63,10 @@ bu">
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-nodejs" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Session" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/03/01/nodejs/" class="article-date">
-  <time datetime="2017-03-01T04:59:15.000Z" itemprop="datePublished">2017-03-01</time>
+    <a href="/2017/03/06/Session/" class="article-date">
+  <time datetime="2017-03-06T10:38:04.000Z" itemprop="datePublished">2017-03-06</time>
 </a>
     
   </div>
@@ -119,7 +77,7 @@ bu">
         
   
     <h1 class="article-title" itemprop="name">
-      Node.JS
+      Session
     </h1>
   
 
@@ -127,41 +85,16 @@ bu">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##Node.JS 简介</p>
-<ul>
-<li>共享状态的并发。注意回调函数和错误处理修改内存中的变量（状态）。</li>
-<li>阻塞与非阻塞。nodejs采用事件轮询，故<strong>setTimeout()</strong>是非阻塞的，异步的。</li>
-<li>Node并发采用事件轮询。</li>
-<li>单线程。调用（执行）堆栈</li>
-<li>错误处理。</li>
-<li>堆栈追踪</li>
-</ul>
-<p>##Node 中的 API</p>
-<ul>
-<li>全局对象 <strong>global</strong></li>
-<li>模块系统的三个核心对象:require,module,export</li>
-<li>事件，监听。</li>
-<li>buffer</li>
-<li>stream</li>
-<li>监视</li>
-<li>事件驱动 <strong>events</strong><ul>
-<li>events.EventEmitter</li>
-</ul>
-</li>
-</ul>
-<h2 id="exports-和-module-exports"><a href="#exports-和-module-exports" class="headerlink" title="exports 和 module.exports"></a>exports 和 module.exports</h2><ol>
-<li>module.exports 初始值为一个空对象 {}</li>
-<li>exports 是指向的 module.exports 的引用</li>
-<li>require() 返回的是 module.exports 而不是 exports</li>
-</ol>
+        <h1 id="什么是Session"><a href="#什么是Session" class="headerlink" title="什么是Session"></a>什么是Session</h1><p>session，中文经常翻译为会话，其本来的含义是指有始有终的一系列动作/消息，比如打电话时从拿起电话拨号到挂断电话这中间的一系列过程可以称之为一个session。有时候我们可以看到这样的话“在一个浏览器会话期间，…”，这里的会话一词用的就是其本义，是指从一个浏览器窗口打开到关闭这个期间①。最混乱的是“用户（客户端）在一次会话期间”这样一句话，它可能指用户的一系列动作（一般情况下是同某个具体目的相关的一系列动作，比如从登录到选购商品到结账登出这样一个网上购物的过程，有时候也被称为一个transaction），然而有时候也可能仅仅是指一次连接，也有可能是指含义①，其中的差别只能靠上下文来推断②。</p>
+<p>然而当session一词与网络协议相关联时，它又往往隐含了“面向连接”和/或“保持状态”这样两个含义，“面向连接”指的是在通信双方在通信之前要先建立一个通信的渠道，比如打电话，直到对方接了电话通信才能开始，与此相对的是写信，在你把信发出去的时候你并不能确认对方的地址是否正确，通信渠道不一定能建立，但对发信人来说，通信已经开始了。“保持状态”则是指通信的一方能够把一系列的消息关联起来，使得消息之间可以互相依赖，比如一个服务员能够认出再次光临的老顾客并且记得上次这个顾客还欠店里一块钱。这一类的例子有“一个TCP session”或者“一个POP3 session”③。 </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://crazycs.com/2017/03/01/nodejs/" data-id="cizxzbgpq0006rscfprdpc517" class="article-share-link">Share</a>
+      <a data-url="http://crazycs.com/2017/03/06/Session/" data-id="cizxzbgp50004rscft1lz7a16" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node-js简介/">Node.js简介</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
 
     </footer>
   </div>
@@ -169,15 +102,11 @@ bu">
     
 <nav id="article-nav">
   
-    <a href="/2017/03/04/express/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          express
-        
-      </div>
-    </a>
   
+    <a href="/2017/03/05/Promise/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Promise</div>
+    </a>
   
 </nav>
 
